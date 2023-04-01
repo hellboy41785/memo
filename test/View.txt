@@ -1,0 +1,47 @@
+<form className="flex flex-col gap-10 p-4 w-full">
+<div className="flex flex-col gap-10">
+  <input
+    type="text"
+    defaultValue="Heading"
+    placeholder="Heading"
+    ref={title}
+    className="w-full px-2 py-5 text-3xl bg-black border-b focus:outline-none"
+  />
+  <div className="flex items-center gap-4">
+    <Folder size={30} color="#908484" weight="fill" />
+    <h1>Folder</h1>
+
+    <div className="dropdown dropdown-hover">
+      <label tabIndex={0}>
+        {chooseFolder === null ? "All Folder" : chooseFolder.name}
+      </label>
+      <ul
+        tabIndex={0}
+        className="p-2 shadow dropdown-content menu bg-base-100 rounded-box w-52"
+      >
+        {folder.map((el: { id: string; name: string }) => (
+          <li key={el.id} onClick={() => setChooseFolder(el)}>
+            <a>{el.name}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  {/* NoteArea */}
+</div>
+</form>
+<div
+contentEditable={true}
+className="focus:outline-none prose px-2"
+ref={divRef}
+dangerouslySetInnerHTML={{ __html: userInput }}
+></div>
+<div className="flex justify-end fixed bottom-10  ">
+<FloppyDiskBack
+  className="cursor-pointer hover:text-blue-700"
+  size={30}
+  weight="fill"
+  onClick={() => handleSave()}
+/>
+</div>

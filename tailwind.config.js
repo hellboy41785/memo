@@ -1,20 +1,21 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
 
-    // Or if using `src` directory:
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+// const {fontFamily} = require("tailwind/defaultTheme")
+
+module.exports = {
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
+    fontFamily: {
+      incon:["var(--font-inconsolata)"],
+      sans:["var(--font-indie)","sans"]
+    },
   },
   plugins: [
     require("daisyui"),
     require("tailwind-scrollbar")({ nocompatible: true }),
     require("@tailwindcss/line-clamp"),
+    require("@tailwindcss/typography"),
   ],
 
   // daisyUI config (optional)
@@ -26,6 +27,6 @@ module.exports = {
     logs: true,
     rtl: false,
     prefix: "",
-    darkTheme: "dark",
+    darkTheme: "halloween",
   },
 };
