@@ -49,7 +49,7 @@ const ViewNote = () => {
   };
 
   return (
-    <div className="w-full overflow-y-scroll scrollbar scrollbar-thumb-[#a2b0ab] scrollbar-w-1 scrollbar-thumb-rounded-full">
+    <div className="w-full overflow-y-scroll scrollbar scrollbar-thumb-[#a2b0ab] scrollbar-w-1 scrollbar-thumb-rounded-full ">
       <NoteHeader
         title={title}
         chooseFolder={chooseFolder}
