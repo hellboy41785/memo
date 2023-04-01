@@ -30,10 +30,10 @@ const NoteHeader: FC<NoteHeaderProp> = ({
     folder.find((el: FolderTypeProp) => el.id === note?.folderId)?.name || null;
 
   return (
-    <div className="flex flex-col gap-5 p-3 w-full">
+    <div className="flex flex-col w-full gap-5 p-3">
       <div className="flex flex-col gap-5">
         <h1
-          className="focus:outline-none prose px-2 text-4xl font-bold"
+          className="px-2 text-4xl font-bold prose focus:outline-none"
           contentEditable={editNote}
           suppressContentEditableWarning={true}
           ref={title}
@@ -70,7 +70,7 @@ const NoteHeader: FC<NoteHeaderProp> = ({
               </label>
               <ul
                 tabIndex={0}
-                className="p-2 shadow dropdown-content menu   w-52  rounded"
+                className="p-2 rounded shadow  dropdown-content menu w-52"
               >
                 {folder.map((el: { id: string; name: string }) => (
                   <li

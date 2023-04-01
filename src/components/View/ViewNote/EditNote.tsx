@@ -11,7 +11,7 @@ const EditNote: FC<EditNoteProp> = ({ divRef }) => {
   return (
     <div
       contentEditable={editNote}
-      className="focus:outline-none px-3 lg:h-[550px] py-6 prose lg:max-w-6xl"
+      className="focus:outline-none px-3 min-h-[550px] lg:h-[550px] py-6 prose lg:max-w-6xl"
       ref={divRef}
       dangerouslySetInnerHTML={{ __html: note?.text || "" }}
       suppressContentEditableWarning={true}
