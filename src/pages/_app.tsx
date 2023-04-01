@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <link
           rel="icon"
           type="text/html"
-          // href="https://img.icons8.com/bubbles/500/null/cancel-2.png"
+          href="https://img.icons8.com/doodle/480/null/sticky-notes.png"
         />
       </Head>
       <QueryClientProvider client={queryClient}>
