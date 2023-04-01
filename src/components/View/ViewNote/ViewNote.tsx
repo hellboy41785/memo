@@ -20,19 +20,27 @@ const ViewNote = () => {
   const { mutate: createNote } = useCreateNote();
   const { mutate: updateNote } = useUpdateNote();
 
-
   const handleSave = () => {
+    const removeBackgroundColor = (html: string) => {
+      const regex = /style\s*=\s*["']([^"']*)["']/gi; 
+      const result = html.replace(regex, (match: any, p1: string) => {
+        const style = p1.replace(/background-color\s*:\s*[^;]+;/gi, ""); 
+        return `style="${style}"`; 
+      });
+      return result;
+    };
+
     if (note?.id.length === 0) {
       createNote({
         title: title?.current?.textContent || "",
-        text: divRef.current?.innerHTML || "",
+        text: removeBackgroundColor(divRef.current?.innerHTML || ""),
         folderId: chooseFolder === null ? null : chooseFolder.id,
       });
     } else {
       updateNote({
         noteId: note?.id || "",
         title: title?.current?.textContent || "",
-        text: divRef.current?.innerHTML || "",
+        text: removeBackgroundColor(divRef.current?.innerHTML || ""),
         folderId: chooseFolder === null ? note?.folderId : chooseFolder.id,
       });
     }
@@ -41,17 +49,17 @@ const ViewNote = () => {
   };
 
   return (
-    <>
+    <div className="w-full overflow-y-scroll scrollbar scrollbar-thumb-slate-200 scrollbar-w-2 scrollbar-thumb-rounded-full">
       <NoteHeader
         title={title}
         chooseFolder={chooseFolder}
         setChooseFolder={setChooseFolder}
       />
-      <NoteTools divRef={divRef}/>
+      <NoteTools divRef={divRef} />
       {/* NoteArea */}
       <EditNote divRef={divRef} />
       <NoteMenu handleSave={handleSave} />
-    </>
+    </div>
   );
 };
 

@@ -1,11 +1,5 @@
 import React, { FC } from "react";
-import {
-  FloppyDiskBack,
-  Folder,
-  Eraser,
-  X,
-  CaretDown,
-} from "@phosphor-icons/react";
+import { FloppyDiskBack, Eraser, X } from "@phosphor-icons/react";
 import { useNoteStore } from "@/store/useMemoStore";
 
 interface NoteMenuProps {
@@ -15,7 +9,7 @@ interface NoteMenuProps {
 const NoteMenu: FC<NoteMenuProps> = ({ handleSave }) => {
   const editNote = useNoteStore((state) => state.editNote);
   return (
-    <div className="flex justify-end fixed bottom-1 p-2  w-full gap-3 lg:w-[45%]">
+    <div className="flex justify-end fixed bottom-1 px-2  w-full gap-3 lg:w-[45%] ">
       <Eraser
         className={`${
           editNote
